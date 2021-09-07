@@ -3,13 +3,39 @@
 <%- include('_header') -%>
 <body>
 <h1>Posts</h1>
-<ol>
+<button id="colour-change-button" type="submit"> Change Posts Colour </button>
+<ol class="center-content">
+    <section class= all-posts-section>
     <% results.forEach(function(post) {%>
-        <li>
-            <%= post.message %>
+    <div class="posts" >
+        <li >
+            <img src= "<%=post.imageUrl %>" width="300"/>   
+            <h2><%= post.message %></h2>
+            <p> Posted by:<a href= '/users/<%=post.postedBy.id%>' > <%= post.postedBy.name %></a> (<%=post.postedBy.username%>)</p>
+            <p> created on: <%=post.createdAt  %></p>
+            <p>Likes: <%= post.likedBy.length %> Dislikes: <%= post.dislikedBy.length %> </p>
+            <p>liked by:<% for (let i = 0; i < post.likedBy.length; i++) {%>
+                    <%=post.likedBy[i].name%></p>
+                <% } %>
+            <form method="post" action="/posts/<%= post.id %>/like/">         
+                <button class="button" type="submit"  name= "like"> Like </button> 
+            </form>
+    
+            <form method="post" action="/posts/<%= post.id %>/dislike/">         
+                <button class="button" type="submit" name = "dislike"> Dislike </button>   
+            </form>
         </li>
+    </div>
+    
     <% }); %>
-</ol>
+</section>
+</ol> 
+<%if (next) { %>
+    <a href="<%= next %>">Next</a>
+<% } %>
+<%if (previous) { %>
+    <a href="<%= previous %>">Previous</a>
+<% } %>
 </body>
 <%- include('_footer') -%>
 </html>

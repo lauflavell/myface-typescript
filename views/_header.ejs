@@ -1,6 +1,31 @@
 <header>
-    <nav>
-        <a href="/posts">Posts</a>
-        <a href="/users">Users</a>
+    <nav class="nav-bar">
+        <a href="/" class="nav-bar-link">MyFace</a>
+        <a href="/" class="nav-bar-link">Home</a>
+        <a href="/posts" class="nav-bar-link">Posts</a>
+        <a href="/users" class="nav-bar-link">Users</a>
+        <button class="nav-bar-link nav-bar-button">+ New Post</button>
     </nav>
+ <!-- The overlay -->
+ <div class="mobile-nav">
+ <div id="myNav" class="overlay">
+
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+    <!-- Overlay content -->
+    <div class="overlay-content">
+        <a href="/" >MyFace</a>
+        <a href="/" >Home</a>
+        <a href="/posts" >Posts</a>
+        <a href="/users" >Users</a>
+        <button class="nav-bar-link nav-bar-button">+ New Post</button>
+    </div>
+  
+  </div>
+  
+  <!-- Use any element to open/show the overlay navigation menu --> 
+    
+<a href="javascript:void(0)" class="icon" onclick="openNav()">&#x2630;</a>
+</div> 
 </header>
